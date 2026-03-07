@@ -1,0 +1,30 @@
+{
+  "name": "@ai-me/create",
+  "version": "0.1.0",
+  "description": "Interactive CLI to generate AI-Me vendor cards",
+  "type": "module",
+  "bin": {
+    "ai-me-create": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
+    "ajv": "^8.17.0",
+    "ajv-formats": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  },
+  "keywords": ["ai-me", "vendor-card", "generator", "cli"],
+  "license": "Apache-2.0"
+}

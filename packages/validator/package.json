@@ -1,0 +1,30 @@
+{
+  "name": "@ai-me/validator",
+  "version": "0.1.0",
+  "description": "CLI validator for AI-Me vendor cards",
+  "type": "module",
+  "bin": {
+    "ai-me-validate": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ajv": "^8.17.0",
+    "ajv-formats": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  },
+  "keywords": ["ai-me", "vendor-card", "validator", "json-schema"],
+  "license": "Apache-2.0"
+}
