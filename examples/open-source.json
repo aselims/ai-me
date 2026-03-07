@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1",
+  "name": "FastParse",
+  "website": "https://fastparse.example.dev",
+  "summary": "A fast, lightweight library for parsing structured data formats.",
+  "logo": "https://fastparse.example.dev/icon.svg",
+  "languages": ["en"],
+  "category": ["open_source", "developer_tools"],
+  "canonical_pages": {
+    "home": "https://fastparse.example.dev/",
+    "docs": "https://fastparse.example.dev/docs",
+    "contact": "https://github.com/example/fastparse/issues"
+  },
+  "offerings": [
+    {
+      "name": "FastParse",
+      "type": "open_source",
+      "description": "MIT-licensed parsing library with zero dependencies.",
+      "pricing": {
+        "model": "free",
+        "currency": "",
+        "url": ""
+      },
+      "cta": {
+        "label": "View on GitHub",
+        "url": "https://github.com/example/fastparse"
+      }
+    }
+  ],
+  "related": {
+    "llms_txt": "https://fastparse.example.dev/llms.txt"
+  },
+  "last_updated": "2026-01-20"
+}

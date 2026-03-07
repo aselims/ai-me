@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1",
+  "name": "CloudSync",
+  "legal_name": "CloudSync GmbH",
+  "website": "https://cloudsync.example.com",
+  "summary": "Real-time data synchronization platform for distributed teams.",
+  "logo": "https://cloudsync.example.com/logo.png",
+  "languages": ["en", "de"],
+  "regions": ["EU", "US"],
+  "category": ["saas", "data_sync", "enterprise"],
+  "canonical_pages": {
+    "home": "https://cloudsync.example.com/",
+    "pricing": "https://cloudsync.example.com/pricing",
+    "docs": "https://cloudsync.example.com/docs",
+    "contact": "https://cloudsync.example.com/contact",
+    "privacy": "https://cloudsync.example.com/privacy",
+    "terms": "https://cloudsync.example.com/terms",
+    "security": "https://cloudsync.example.com/security",
+    "imprint": "https://cloudsync.example.com/imprint"
+  },
+  "offerings": [
+    {
+      "name": "CloudSync Pro",
+      "type": "subscription",
+      "description": "Unlimited real-time sync across all your data sources with SOC 2 compliance.",
+      "pricing": {
+        "model": "tiered",
+        "currency": "EUR",
+        "url": "https://cloudsync.example.com/pricing"
+      },
+      "cta": {
+        "label": "Start free trial",
+        "url": "https://cloudsync.example.com/signup"
+      }
+    },
+    {
+      "name": "CloudSync API",
+      "type": "api",
+      "description": "RESTful API for programmatic data synchronization.",
+      "pricing": {
+        "model": "usage",
+        "currency": "EUR",
+        "url": "https://cloudsync.example.com/pricing#api"
+      },
+      "cta": {
+        "label": "Get API key",
+        "url": "https://cloudsync.example.com/developers"
+      }
+    }
+  ],
+  "related": {
+    "schema_org": "https://cloudsync.example.com/schema.jsonld",
+    "llms_txt": "https://cloudsync.example.com/.well-known/llms.txt"
+  },
+  "support": {
+    "email": "support@cloudsync.example.com",
+    "hours": "Mon-Fri 09:00-18:00 CET",
+    "response_time": "4 hours (business hours)"
+  },
+  "technical": {
+    "api_available": true,
+    "api_docs_url": "https://cloudsync.example.com/docs/api",
+    "status_page_url": "https://status.cloudsync.example.com"
+  },
+  "last_updated": "2026-03-01"
+}

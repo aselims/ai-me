@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "name": "Stratton Digital",
+  "legal_name": "Stratton Digital Consulting Ltd.",
+  "website": "https://stratton.example.com",
+  "summary": "Digital transformation consulting for mid-market enterprises.",
+  "logo": "https://stratton.example.com/logo.svg",
+  "languages": ["en"],
+  "regions": ["US", "UK"],
+  "category": ["consulting", "digital_transformation"],
+  "canonical_pages": {
+    "home": "https://stratton.example.com/",
+    "contact": "https://stratton.example.com/contact",
+    "privacy": "https://stratton.example.com/privacy",
+    "terms": "https://stratton.example.com/terms"
+  },
+  "offerings": [
+    {
+      "name": "Strategy Workshop",
+      "type": "service",
+      "description": "Two-day on-site digital strategy workshop for leadership teams.",
+      "pricing": {
+        "model": "fixed",
+        "currency": "USD",
+        "url": "https://stratton.example.com/services#workshop"
+      },
+      "cta": {
+        "label": "Book a workshop",
+        "url": "https://stratton.example.com/contact?service=workshop"
+      }
+    },
+    {
+      "name": "Ongoing Advisory",
+      "type": "service",
+      "description": "Monthly retainer for strategic technology advisory.",
+      "pricing": {
+        "model": "contact_sales",
+        "currency": "USD",
+        "url": "https://stratton.example.com/services#advisory"
+      },
+      "cta": {
+        "label": "Get in touch",
+        "url": "https://stratton.example.com/contact"
+      }
+    }
+  ],
+  "support": {
+    "email": "hello@stratton.example.com",
+    "hours": "Mon-Fri 09:00-17:00 EST",
+    "response_time": "1 business day"
+  },
+  "technical": {
+    "api_available": false,
+    "api_docs_url": "",
+    "status_page_url": ""
+  },
+  "last_updated": "2026-02-15"
+}

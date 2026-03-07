@@ -1,0 +1,49 @@
+{
+  "schema_version": "0.1",
+  "name": "NordicGoods",
+  "legal_name": "NordicGoods AB",
+  "website": "https://nordicgoods.example.com",
+  "summary": "Curated Scandinavian design products shipped worldwide.",
+  "logo": "https://nordicgoods.example.com/logo.png",
+  "languages": ["en", "sv", "da", "no"],
+  "regions": ["EU", "US", "Global"],
+  "category": ["ecommerce", "retail", "design"],
+  "canonical_pages": {
+    "home": "https://nordicgoods.example.com/",
+    "contact": "https://nordicgoods.example.com/contact",
+    "privacy": "https://nordicgoods.example.com/privacy",
+    "terms": "https://nordicgoods.example.com/terms",
+    "imprint": "https://nordicgoods.example.com/imprint"
+  },
+  "offerings": [
+    {
+      "name": "NordicGoods Store",
+      "type": "product",
+      "description": "Curated Scandinavian furniture, lighting, and home accessories.",
+      "pricing": {
+        "model": "fixed",
+        "currency": "EUR",
+        "url": "https://nordicgoods.example.com/shop"
+      },
+      "cta": {
+        "label": "Shop now",
+        "url": "https://nordicgoods.example.com/shop"
+      }
+    }
+  ],
+  "related": {
+    "schema_org": "https://nordicgoods.example.com/schema.jsonld",
+    "llms_txt": "https://nordicgoods.example.com/.well-known/llms.txt"
+  },
+  "support": {
+    "email": "help@nordicgoods.example.com",
+    "hours": "Mon-Fri 10:00-16:00 CET",
+    "response_time": "24 hours"
+  },
+  "technical": {
+    "api_available": false,
+    "api_docs_url": "",
+    "status_page_url": ""
+  },
+  "last_updated": "2026-02-28"
+}
