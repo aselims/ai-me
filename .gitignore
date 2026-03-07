@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.output/
+.astro/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# Coverage
+coverage/
+
+# Quarantine (internal/dev files not for public repo)
+Quarantine/

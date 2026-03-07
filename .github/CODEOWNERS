@@ -1,0 +1,13 @@
+# Spec and schema changes require maintainer review
+spec/                @aselims
+schemas/             @aselims
+examples/            @aselims
+
+# Website and tooling
+website/             @aselims
+packages/            @aselims
+
+# Community and governance files
+CONTRIBUTING.md      @aselims
+GOVERNANCE.md        @aselims
+LICENSE              @aselims

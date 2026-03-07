@@ -1,0 +1,38 @@
+# Licensing
+
+This repository uses a dual-license structure.
+
+## Specification, schemas, and examples — CC-BY 4.0
+
+The following directories and their contents are licensed under the
+Creative Commons Attribution 4.0 International License (CC-BY 4.0):
+
+- `spec/`
+- `schemas/`
+- `examples/`
+- `docs/` (excluding `docs/prompt.md`)
+
+You are free to share and adapt these materials for any purpose, including
+commercial use, provided you give appropriate credit to the AI-Me project.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+SPDX-License-Identifier: CC-BY-4.0
+
+## Code — Apache 2.0
+
+All software in this repository is licensed under the Apache License,
+Version 2.0. This includes:
+
+- `website/`
+- `packages/`
+- Configuration files, CI workflows, and scripts
+
+Full license text: see LICENSE-APACHE below, or
+https://www.apache.org/licenses/LICENSE-2.0
+
+SPDX-License-Identifier: Apache-2.0
+
+---
+
+Copyright 2026 AI-Me Contributors
