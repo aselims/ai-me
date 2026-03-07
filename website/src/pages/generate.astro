@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AiPromptCard from "../components/AiPromptCard.astro";
+import GeneratorWizard from "../components/GeneratorWizard.tsx";
+import fs from "node:fs";
+import path from "node:path";
+
+const schemaPath = path.resolve("../schemas/ai-me.schema.json");
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf-8"));
+---
+
+<BaseLayout title="Generate" description="Generate your AI-Me vendor card with AI, a web wizard, or the CLI.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Generate Your Vendor Card</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      Three ways to create your <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">ai-me.json</code> — pick whichever suits you best.
+    </p>
+
+    <!-- Option 1: AI Prompt -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Option 1: AI-Assisted (fastest)</h2>
+      <AiPromptCard />
+    </section>
+
+    <!-- Option 2: Web Wizard -->
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Option 2: Web Wizard</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-6">
+        Fill in the form step by step. Your JSON is built live — download when ready.
+      </p>
+      <GeneratorWizard client:load schema={schema} />
+    </section>
+
+    <!-- Option 3: CLI -->
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Option 3: CLI</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        Prefer the terminal? Run the interactive generator:
+      </p>
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900">
+        <code class="text-sm text-gray-800 dark:text-gray-200">npx @ai-me/create</code>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

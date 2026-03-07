@@ -1,0 +1,59 @@
+---
+const prompt = `I want to create an AI-Me vendor card for my website. The AI-Me spec is at https://spec.ai-me.dev/spec and the JSON Schema is at https://spec.ai-me.dev/schemas/ai-me.schema.json
+
+Please ask me about my business (name, website, what we do, offerings, etc.) and then generate a valid ai-me.json file. The file should be placed at /.well-known/ai-me.json on my web server.`;
+---
+
+<div class="rounded-lg border border-indigo-200 bg-indigo-50 p-6 dark:border-indigo-800 dark:bg-indigo-950/30">
+  <div class="flex items-start gap-3">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+    </div>
+    <div class="flex-1">
+      <h3 class="text-lg font-semibold text-indigo-900 dark:text-indigo-200">Prefer AI? Copy this prompt</h3>
+      <p class="mt-1 text-sm text-indigo-700 dark:text-indigo-300">
+        Paste into ChatGPT, Claude, Cursor, or any AI assistant to generate your vendor card instantly.
+      </p>
+      <div class="mt-4 relative">
+        <pre class="rounded-md border border-indigo-200 bg-white p-4 text-sm text-gray-800 dark:border-indigo-700 dark:bg-gray-900 dark:text-gray-200 whitespace-pre-wrap" id="ai-prompt-text">{prompt}</pre>
+        <button
+          id="copy-prompt-btn"
+          class="mt-3 inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
+        >
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+          <span id="copy-prompt-label">Copy Prompt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("copy-prompt-btn");
+  const label = document.getElementById("copy-prompt-label");
+  const text = document.getElementById("ai-prompt-text");
+
+  btn?.addEventListener("click", async () => {
+    const content = text?.textContent || "";
+    try {
+      await navigator.clipboard.writeText(content);
+      if (label) label.textContent = "Copied!";
+      // Track with Umami
+      if ((window as any).umami) {
+        (window as any).umami.track("prompt-copy");
+      }
+    } catch {
+      // Fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = content;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      if (label) label.textContent = "Copied!";
+    }
+    setTimeout(() => {
+      if (label) label.textContent = "Copy Prompt";
+    }, 2000);
+  });
+</script>

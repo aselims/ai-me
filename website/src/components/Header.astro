@@ -1,0 +1,90 @@
+---
+const navItems = [
+  { label: "Spec", href: "/spec" },
+  { label: "Quick Start", href: "/quickstart" },
+  { label: "Examples", href: "/examples" },
+  { label: "Validator", href: "/validator" },
+  { label: "Generate", href: "/generate" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Roadmap", href: "/roadmap" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+      <img src="/logo.png" alt="AI-Me" class="h-12 w-auto" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 md:flex">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+            currentPath === item.href || currentPath === item.href + "/"
+              ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
+              : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="https://github.com/anthropics/ai-me"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ml-2 rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+      >
+        GitHub
+      </a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="rounded-md p-2 text-gray-600 hover:bg-gray-100 md:hidden dark:text-gray-400 dark:hover:bg-gray-800"
+      aria-label="Toggle menu"
+    >
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-menu" class="hidden border-t border-gray-200 px-4 pb-3 md:hidden dark:border-gray-800">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class:list={[
+          "block rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          currentPath === item.href || currentPath === item.href + "/"
+            ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
+            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white",
+        ]}
+      >
+        {item.label}
+      </a>
+    ))}
+    <a
+      href="https://github.com/anthropics/ai-me"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+    >
+      GitHub
+    </a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

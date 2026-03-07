@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" fill="none">
+  <!-- AI-Me geometric fish logo - SVG version matching the canonical PNG design -->
+  <g transform="translate(5, 5)">
+    <!-- Tail - { brace -->
+    <path d="M18 40 C11 32, 7 24, 8 12" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <path d="M18 40 C11 48, 7 56, 8 68" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Tail connector bracket detail -->
+    <path d="M8 12 C9 9, 6 8, 4 9" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M8 68 C9 71, 6 72, 4 71" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Main body - large faceted polygon -->
+    <polygon points="18,40 35,18 55,12 80,18 100,28 105,40 100,52 80,62 55,68 35,62" fill="#2563eb"/>
+
+    <!-- Upper head facet -->
+    <polygon points="55,12 80,18 100,28 105,40 85,30 65,22" fill="#3b82f6"/>
+
+    <!-- Mid-body diagonal facet -->
+    <polygon points="18,40 35,18 55,12 45,32" fill="#60a5fa" opacity="0.5"/>
+
+    <!-- Lower body facet -->
+    <polygon points="18,40 35,62 55,68 42,48" fill="#3b82f6"/>
+
+    <!-- Dorsal fin -->
+    <polygon points="45,18 55,2 62,12 55,12" fill="#2563eb"/>
+    <polygon points="55,2 62,12 55,12" fill="#3b82f6"/>
+
+    <!-- Pectoral fin (bottom-front) -->
+    <polygon points="50,52 42,70 58,68" fill="#2563eb" opacity="0.85"/>
+
+    <!-- Ventral fin (bottom-back) -->
+    <polygon points="30,55 22,72 38,62" fill="#2563eb" opacity="0.85"/>
+
+    <!-- Internal circuit trace lines -->
+    <line x1="35" y1="35" x2="75" y2="35" stroke="white" stroke-width="1.2" stroke-opacity="0.3"/>
+    <line x1="40" y1="45" x2="80" y2="45" stroke="white" stroke-width="1.2" stroke-opacity="0.3"/>
+    <line x1="55" y1="25" x2="85" y2="25" stroke="white" stroke-width="1.2" stroke-opacity="0.25"/>
+    <line x1="60" y1="35" x2="60" y2="50" stroke="white" stroke-width="1.2" stroke-opacity="0.2"/>
+    <line x1="75" y1="28" x2="75" y2="45" stroke="white" stroke-width="1.2" stroke-opacity="0.2"/>
+
+    <!-- Circuit nodes -->
+    <circle cx="60" cy="35" r="1.8" fill="white" opacity="0.4"/>
+    <circle cx="75" cy="35" r="1.8" fill="white" opacity="0.4"/>
+    <circle cx="75" cy="45" r="1.8" fill="white" opacity="0.4"/>
+
+    <!-- Eye - circuit node style -->
+    <circle cx="88" cy="34" r="5.5" fill="white"/>
+    <circle cx="88" cy="34" r="2.5" fill="#1e40af"/>
+
+    <!-- Mouth line -->
+    <line x1="102" y1="40" x2="108" y2="40" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

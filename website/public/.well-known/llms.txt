@@ -1,0 +1,17 @@
+# AI-Me Specification
+
+> Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.
+
+AI-Me defines a JSON document served at `/.well-known/ai-me.json` that provides canonical pages, offerings, pricing model, and primary calls-to-action in a strict, validatable shape.
+
+## Links
+
+- Specification: https://spec.ai-me.dev/spec
+- Quick Start: https://spec.ai-me.dev/quickstart
+- Generate Your Card: https://spec.ai-me.dev/generate
+- Examples: https://spec.ai-me.dev/examples
+- Validator: https://spec.ai-me.dev/validator
+- FAQ: https://spec.ai-me.dev/faq
+- GitHub: https://github.com/anthropics/ai-me
+- Vendor Card: https://spec.ai-me.dev/.well-known/ai-me.json
+- Full Documentation: https://spec.ai-me.dev/.well-known/llms-full.txt

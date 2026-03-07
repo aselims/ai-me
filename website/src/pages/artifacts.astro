@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CodeBlock from "../components/CodeBlock.astro";
+
+const aiMeMinimal = JSON.stringify({
+  "schema_version": "0.1",
+  "name": "Your Company",
+  "website": "https://example.com",
+  "summary": "What you do, in one sentence.",
+  "canonical_pages": {
+    "home": "https://example.com/",
+    "contact": "https://example.com/contact"
+  },
+  "last_updated": "2026-03-05"
+}, null, 2);
+
+const llmsTxt = `# Your Company
+
+> What you do, in one sentence.
+
+Detailed description of your company and what it offers.
+
+## Links
+
+- Website: https://example.com
+- Documentation: https://example.com/docs
+- Pricing: https://example.com/pricing
+- Vendor Card: https://example.com/.well-known/ai-me.json`;
+
+const htmlSnippet = `<!-- AI-Me Compliant Badge -->
+<a href="https://spec.ai-me.dev" target="_blank" rel="noopener noreferrer">
+  <img
+    src="https://spec.ai-me.dev/badge.svg"
+    alt="AI-Me Compliant"
+    width="120"
+    height="28"
+  />
+</a>`;
+---
+
+<BaseLayout title="Artifacts" description="Downloadable templates and copyable snippets for implementing AI-Me.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Artifacts</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      Copy-paste templates to get started with AI-Me on your site.
+    </p>
+
+    <div class="mt-10 space-y-12">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">/.well-known/ai-me.json</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          Minimal vendor card template. Replace the placeholder values with your own.
+        </p>
+        <CodeBlock code={aiMeMinimal} lang="json" filename="/.well-known/ai-me.json" />
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">/.well-known/llms.txt</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          A recommended companion file providing human-readable context for LLMs. Include a link to your vendor card.
+        </p>
+        <CodeBlock code={llmsTxt} lang="markdown" filename="/.well-known/llms.txt" />
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Compliance badge</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          Embed this badge on your site to show that you publish an AI-Me vendor card.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <div class="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+            <img src="/favicon.svg" alt="AI-Me" class="h-4 w-4" />
+            AI-Me Compliant
+          </div>
+        </div>
+        <CodeBlock code={htmlSnippet} lang="html" filename="badge embed" />
+      </section>
+
+    </div>
+
+    <div class="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-white">More examples</h2>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        See the <a href="/examples" class="text-primary-600 underline dark:text-primary-400">examples page</a> for full vendor cards covering SaaS, consulting, open-source, and e-commerce archetypes.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Why Not Schema.org?" description="How AI-Me differs from schema.org and why both are useful.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Why not just use schema.org?</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      Schema.org is excellent. AI-Me is complementary, not a replacement.
+    </p>
+
+    <div class="mt-10 space-y-10">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Different scope</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          <strong>Schema.org</strong> is a rich vocabulary embedded as JSON-LD across individual pages. It describes entities — products, people, events, organizations — and is consumed by search engines, knowledge graphs, and other crawlers.
+        </p>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          <strong>AI-Me</strong> is a single JSON document at a predictable well-known endpoint. It describes a site as a whole — its canonical pages, offerings, and primary calls-to-action — in a strict, validatable shape designed for AI agents.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Different consumers</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">Schema.org</h3>
+            <ul class="mt-2 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+              <li>• Search engine crawlers</li>
+              <li>• Knowledge graph builders</li>
+              <li>• Rich snippet generators</li>
+              <li>• SEO tools</li>
+            </ul>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">AI-Me</h3>
+            <ul class="mt-2 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+              <li>• AI agents</li>
+              <li>• LLM-powered assistants</li>
+              <li>• Automated discovery tools</li>
+              <li>• Agent orchestration platforms</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Different trade-offs</h2>
+        <div class="mt-4 space-y-4">
+          <div class="rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">Discovery: one fetch vs. crawling</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Schema.org data is scattered across pages — an agent must crawl multiple pages to build a complete picture. An AI-Me vendor card is a single document at a known URL. One HTTP request gives agents everything they need.
+            </p>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">Shape: strict vs. flexible</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Schema.org is deliberately flexible — there are many valid ways to express the same information. AI-Me defines one strict shape with a formal JSON Schema. This makes validation trivial and comparison across sites deterministic.
+            </p>
+          </div>
+          <div class="rounded-lg border border-gray-200 p-5 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">Purpose: depth vs. discovery</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Schema.org excels at rich, detailed descriptions. AI-Me focuses on just enough information for an agent to understand who you are, what you do, and what action to take next.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Use them together</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          The best approach is to use both. Keep your schema.org markup for search engines, and add a vendor card for AI agents. Link them via the <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">related.schema_org</code> field in your vendor card:
+        </p>
+        <pre class="mt-4 overflow-x-auto rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm dark:border-gray-700 dark:bg-gray-900"><code>{`"related": {
+  "schema_org": "https://example.com/schema.jsonld"
+}`}</code></pre>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          This way, AI-Me acts as the discovery layer, and schema.org provides depth. Agents use AI-Me for quick orientation and can follow the <code class="text-xs">related</code> links for richer data when needed.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

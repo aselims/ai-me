@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Governance" description="How changes to the AI-Me specification are proposed, reviewed, and released.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Governance</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      How the AI-Me specification evolves.
+    </p>
+
+    <div class="mt-10 space-y-10">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Versioning</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          AI-Me uses semantic-style versioning:
+        </p>
+        <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400">
+          <li><strong>0.x</strong> — Draft versions. Breaking changes are possible between drafts.</li>
+          <li><strong>1.0</strong> — First stable release. Backwards-compatible changes only after this point.</li>
+          <li><strong>1.x</strong> — Additive changes (new optional fields, extensions).</li>
+          <li><strong>2.0</strong> — Breaking changes, if ever needed.</li>
+        </ul>
+        <p class="mt-3 text-gray-600 dark:text-gray-400">
+          The <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">schema_version</code> field in every vendor card identifies which version the document conforms to.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Proposing changes</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          Changes to the specification follow this process:
+        </p>
+        <ol class="mt-3 space-y-3 text-gray-600 dark:text-gray-400">
+          <li><strong>1. Open an issue.</strong> Describe the problem, use case, or enhancement on <a href="https://github.com/anthropics/ai-me/issues" target="_blank" rel="noopener noreferrer" class="text-primary-600 underline dark:text-primary-400">GitHub</a>. Include examples.</li>
+          <li><strong>2. Discussion.</strong> The community and maintainers discuss the proposal. Expect questions about backwards compatibility, scope, and alternatives.</li>
+          <li><strong>3. Pull request.</strong> If the proposal gains consensus, submit a PR with changes to the spec markdown, JSON Schema, and any affected examples.</li>
+          <li><strong>4. Review.</strong> At least two maintainers must approve. For breaking changes, broader consensus is required.</li>
+          <li><strong>5. Merge and release.</strong> Approved changes are merged and included in the next version.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Decision making</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          During the 0.x draft phase, the project maintainers make final decisions on spec changes, guided by community feedback. The goal is to move quickly while gathering real-world implementation experience.
+        </p>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          Before the 1.0 release, a more formal governance structure will be established, likely including an advisory group of early adopters and implementers.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Extension policy</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          The spec allows custom fields via namespaced prefixes (e.g. <code class="text-sm">x_mcp</code>, <code class="text-sm">x_mycompany</code>). Extensions don't require approval — just follow the naming convention. Popular extensions may be promoted to official recommended fields in future versions.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

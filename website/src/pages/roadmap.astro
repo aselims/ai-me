@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Roadmap" description="AI-Me specification roadmap from v0.1 draft to v1.0 stable.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Roadmap</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      The path from draft to stable specification.
+    </p>
+
+    <div class="mt-10 space-y-8">
+
+      <!-- v0.1 -->
+      <div class="relative border-l-2 border-primary-500 pl-6">
+        <div class="absolute -left-2.5 top-0 h-5 w-5 rounded-full border-2 border-primary-500 bg-primary-600"></div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">v0.1 — Draft <span class="ml-2 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-300">Current</span></h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">Initial specification release.</p>
+        <ul class="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+          <li>• Core data model (required and recommended fields)</li>
+          <li>• Well-known endpoint definition</li>
+          <li>• JSON Schema for validation</li>
+          <li>• Example vendor cards (4 archetypes)</li>
+          <li>• CLI validator tool</li>
+          <li>• Website with documentation</li>
+        </ul>
+      </div>
+
+      <!-- v0.2 -->
+      <div class="relative border-l-2 border-gray-300 pl-6 dark:border-gray-700">
+        <div class="absolute -left-2.5 top-0 h-5 w-5 rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800"></div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">v0.2 — Community Feedback</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">Refinements based on early adopter feedback.</p>
+        <ul class="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+          <li>• Published JSON Schema with test vectors</li>
+          <li>• Formal IANA registration consideration</li>
+          <li>• Extended examples and implementation guides</li>
+          <li>• Community-contributed client libraries</li>
+        </ul>
+      </div>
+
+      <!-- v1.0 -->
+      <div class="relative border-l-2 border-gray-300 pl-6 dark:border-gray-700">
+        <div class="absolute -left-2.5 top-0 h-5 w-5 rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800"></div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">v1.0 — Stable</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">First stable release with backwards-compatibility guarantees.</p>
+        <ul class="mt-3 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+          <li>• Vendor verification (DNS TXT records, signatures)</li>
+          <li>• Optional bridges to MCP and A2A via namespaced extensions</li>
+          <li>• IANA well-known URI suffix registration</li>
+          <li>• Conformance test suite</li>
+          <li>• Governance model formalized</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Want to influence the roadmap?</h2>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        Open an issue on <a href="https://github.com/anthropics/ai-me" target="_blank" rel="noopener noreferrer" class="text-primary-600 underline dark:text-primary-400">GitHub</a> or see the <a href="/governance" class="text-primary-600 underline dark:text-primary-400">governance</a> page for how changes are proposed.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

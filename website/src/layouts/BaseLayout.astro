@@ -1,0 +1,116 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "AI-Me is an open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+  ogImage = "/og-default.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === "AI-Me" ? title : `${title} — AI-Me`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content="AI-Me, vendor card, AI agent discovery, machine-readable, JSON schema, open specification, llms.txt, structured data" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="author" content="AI-Me Contributors" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://spec.ai-me.dev/#org",
+          "name": "AI-Me",
+          "url": "https://spec.ai-me.dev",
+          "logo": "https://spec.ai-me.dev/logo.png",
+          "description": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+          "sameAs": [
+            "https://github.com/anthropics/ai-me"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://spec.ai-me.dev/#website",
+          "name": "AI-Me Vendor Card Specification",
+          "url": "https://spec.ai-me.dev",
+          "publisher": { "@id": "https://spec.ai-me.dev/#org" },
+          "description": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "AI-Me Validator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "url": "https://spec.ai-me.dev/validator",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Validate AI-Me vendor cards against the JSON Schema — online playground and CLI tool."
+        },
+        {
+          "@type": "WebPage",
+          "@id": canonicalURL.href,
+          "url": canonicalURL.href,
+          "name": fullTitle,
+          "description": description,
+          "isPartOf": { "@id": "https://spec.ai-me.dev/#website" },
+          "about": { "@id": "https://spec.ai-me.dev/#org" }
+        }
+      ]
+    })} />
+
+    {/* Umami Analytics — privacy-friendly, no cookies */}
+    {import.meta.env.PUBLIC_UMAMI_WEBSITE_ID && (
+      <script
+        async
+        defer
+        data-website-id={import.meta.env.PUBLIC_UMAMI_WEBSITE_ID}
+        src={`${import.meta.env.PUBLIC_UMAMI_URL || "https://analytics.ai-me.dev"}/script.js`}
+      />
+    )}
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

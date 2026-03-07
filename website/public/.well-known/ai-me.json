@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1",
+  "name": "AI-Me Specification",
+  "website": "https://spec.ai-me.dev",
+  "summary": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+  "logo": "https://spec.ai-me.dev/favicon.svg",
+  "languages": ["en"],
+  "category": ["open_source", "developer_tools", "specification"],
+  "canonical_pages": {
+    "home": "https://spec.ai-me.dev/",
+    "docs": "https://spec.ai-me.dev/spec",
+    "contact": "https://github.com/anthropics/ai-me/issues"
+  },
+  "offerings": [
+    {
+      "name": "AI-Me Vendor Card Spec",
+      "type": "open_source",
+      "description": "A machine-readable vendor card specification for AI agent discovery.",
+      "pricing": {
+        "model": "free",
+        "currency": "",
+        "url": ""
+      },
+      "cta": {
+        "label": "View on GitHub",
+        "url": "https://github.com/anthropics/ai-me"
+      }
+    }
+  ],
+  "related": {
+    "llms_txt": "https://spec.ai-me.dev/.well-known/llms.txt"
+  },
+  "last_updated": "2026-03-05"
+}

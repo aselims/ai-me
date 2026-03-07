@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CodeBlock from "../components/CodeBlock.astro";
+import ValidatorPlayground from "../components/ValidatorPlayground.tsx";
+import fs from "node:fs";
+import path from "node:path";
+
+const schemaPath = path.resolve("../schemas/ai-me.schema.json");
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf-8"));
+
+const saasExample = fs.readFileSync(path.resolve("../examples/saas.json"), "utf-8");
+const minimalExample = JSON.stringify({
+  "schema_version": "0.1",
+  "name": "Example",
+  "website": "https://example.com",
+  "summary": "A short description.",
+  "canonical_pages": {
+    "home": "https://example.com/",
+    "contact": "https://example.com/contact"
+  },
+  "last_updated": "2026-03-05"
+}, null, 2);
+---
+
+<BaseLayout title="Validator" description="Validate your AI-Me vendor card with the CLI or the interactive playground.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Validator</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      Check that your vendor card conforms to the AI-Me specification.
+    </p>
+
+    <!-- CLI -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">CLI Validator</h2>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">
+        Validate any site's vendor card from the command line:
+      </p>
+      <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        The validator fetches <code class="text-xs">/.well-known/ai-me.json</code> from the given URL and validates it against the JSON Schema.
+      </p>
+
+      <h3 class="mt-6 text-lg font-medium text-gray-900 dark:text-white">Validate a local file</h3>
+      <CodeBlock code="npx @ai-me/validator --file ./ai-me.json" lang="bash" filename="terminal" />
+    </section>
+
+    <!-- Playground -->
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Online Playground</h2>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">
+        Paste your vendor card JSON below and validate it instantly — no server required.
+      </p>
+      <div class="mt-6">
+        <ValidatorPlayground
+          client:load
+          schema={schema}
+          examples={[
+            { label: "Minimal", json: minimalExample },
+            { label: "SaaS (full)", json: saasExample },
+          ]}
+        />
+      </div>
+    </section>
+  </div>
+</BaseLayout>

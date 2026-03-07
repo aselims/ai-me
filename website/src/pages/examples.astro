@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CodeBlock from "../components/CodeBlock.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const examplesDir = path.resolve("../examples");
+const exampleFiles = [
+  { name: "SaaS Vendor", file: "saas.json", description: "Full card with multiple offerings, API access, and support details." },
+  { name: "Consulting Firm", file: "consulting.json", description: "Service-oriented card with fixed and contact-sales pricing." },
+  { name: "Open-Source Project", file: "open-source.json", description: "Minimal card for a free, open-source library." },
+  { name: "E-Commerce Store", file: "ecommerce.json", description: "Product-focused card with multi-language and regional support." },
+];
+
+const examples = exampleFiles.map((ex) => ({
+  ...ex,
+  json: fs.readFileSync(path.join(examplesDir, ex.file), "utf-8"),
+}));
+---
+
+<BaseLayout title="Examples" description="Copy-paste AI-Me vendor card examples for SaaS, consulting, open-source, and e-commerce sites.">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Examples</h1>
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
+      Ready-to-use vendor card templates for common business types. Copy, adapt, and serve at <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">/.well-known/ai-me.json</code>.
+    </p>
+
+    <div class="mt-10 space-y-12">
+      {examples.map((ex) => (
+        <section>
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{ex.name}</h2>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{ex.description}</p>
+          <CodeBlock code={ex.json} lang="json" filename={ex.file} />
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Need a different archetype?</h2>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        These examples cover common patterns. For other business types, start with the minimal required fields from the <a href="/quickstart" class="text-primary-600 underline dark:text-primary-400">Quick Start</a> and add recommended fields as needed. Check the <a href="/spec" class="text-primary-600 underline dark:text-primary-400">spec</a> for the full data model.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

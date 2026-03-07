@@ -1,0 +1,47 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div>
+        <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Specification</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/spec" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Read the Spec</a></li>
+          <li><a href="/quickstart" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Quick Start</a></li>
+          <li><a href="/examples" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Examples</a></li>
+          <li><a href="/validator" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Validator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Learn</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/faq" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">FAQ</a></li>
+          <li><a href="/why-not-schema-org" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Why Not Schema.org?</a></li>
+          <li><a href="/artifacts" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Artifacts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Project</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/roadmap" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Roadmap</a></li>
+          <li><a href="/governance" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Governance</a></li>
+          <li><a href="/contributing" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Contributing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Resources</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://github.com/anthropics/ai-me" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">GitHub</a></li>
+          <li><a href="/.well-known/ai-me.json" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Our ai-me.json</a></li>
+          <li><a href="/.well-known/llms.txt" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Our llms.txt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-200 pt-6 text-center text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400">
+      <p>AI-Me Vendor Card Specification v0.1 — Spec: CC-BY 4.0 · Code: Apache-2.0</p>
+      <p class="mt-1">&copy; {year} AI-Me Contributors</p>
+    </div>
+  </div>
+</footer>

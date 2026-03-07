@@ -1,0 +1,21 @@
+# Auto-detect text files and normalise line endings
+* text=auto
+
+# Force LF for source files
+*.js    text eol=lf
+*.ts    text eol=lf
+*.jsx   text eol=lf
+*.tsx   text eol=lf
+*.json  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.md    text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.astro text eol=lf
+
+# Lock file — treat as binary for cleaner diffs
+pnpm-lock.yaml -diff linguist-generated
+
+# Mark generated files
+dist/** linguist-generated

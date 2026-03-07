@@ -1,0 +1,13 @@
+{
+  "name": "ai-me",
+  "private": true,
+  "description": "AI-Me Vendor Card Specification — machine-readable discovery for AI agents",
+  "scripts": {
+    "dev": "pnpm --filter website dev",
+    "build": "pnpm --filter website build",
+    "preview": "pnpm --filter website preview",
+    "lint": "pnpm --filter website lint",
+    "typecheck": "pnpm --filter website typecheck"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
