@@ -2,11 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Governance" description="How changes to the AI-Me specification are proposed, reviewed, and released.">
+<BaseLayout title="Governance" description="How changes to the AI-Me specification are proposed, reviewed, and released — openly and with community input.">
   <div class="mx-auto max-w-4xl px-4 py-12">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Governance</h1>
     <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
-      How the AI-Me specification evolves.
+      How the AI-Me specification evolves — openly, with community input.
+    </p>
+    <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">
+      AI-Me is an open specification licensed under CC-BY 4.0. All changes are proposed and reviewed publicly on GitHub. During the v0.x draft phase, maintainers make final decisions guided by community feedback. A formal advisory group will be established before v1.0.
     </p>
 
     <div class="mt-10 space-y-10">
@@ -23,7 +26,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <li><strong>2.0</strong> — Breaking changes, if ever needed.</li>
         </ul>
         <p class="mt-3 text-gray-600 dark:text-gray-400">
-          The <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">schema_version</code> field in every vendor card identifies which version the document conforms to.
+          The <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">schema_version</code> field in every discovery manifest identifies which version the document conforms to.
         </p>
       </section>
 

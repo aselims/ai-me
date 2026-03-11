@@ -481,7 +481,7 @@ export default function GeneratorWizard({ schema }: Props) {
 
         {validationErrors.length === 0 && step === STEPS.length - 1 && (
           <div style={{ padding: "12px 16px", borderRadius: "8px", background: "#f0fdf4", border: "1px solid #86efac", color: "#166534", fontSize: "14px", fontWeight: "600", marginBottom: "16px" }}>
-            ✓ Valid AI-Me vendor card
+            ✓ Valid AI-Me discovery manifest
           </div>
         )}
 

@@ -4,19 +4,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const faqs = [
   {
     q: "What is AI-Me?",
-    a: "AI-Me is an open specification that defines a machine-readable \"vendor card\" — a JSON document served at <code>/.well-known/ai-me.json</code>. It provides one-fetch, site-wide discovery for AI agents: who you are, what you offer, how to engage."
+    a: "AI-Me is an open specification for a machine-readable discovery manifest — a JSON document served at <code>/.well-known/ai-me.json</code>. It provides one-fetch, site-wide discovery for AI agents: who you are, what you offer, and how to engage. The document is sometimes called a \"vendor card\"; both terms refer to the same thing."
   },
   {
     q: "Who is this for?",
-    a: "Any website or service that wants to be discoverable by AI agents. SaaS companies, open-source projects, e-commerce stores, consulting firms, government portals — if you have a web presence, you can publish a vendor card."
+    a: "Any website or service that wants to be discoverable by AI agents. SaaS companies, open-source projects, e-commerce stores, consulting firms, government portals — if you have a web presence, you can publish a discovery manifest. There's no requirement to have commercial offerings."
   },
   {
     q: "Is this a replacement for schema.org?",
-    a: "No. Schema.org provides page-level vocabulary consumed by search engines. AI-Me provides site-level discovery for AI agents. They're complementary — you can reference your schema.org data from the vendor card's <code>related</code> field. See <a href='/why-not-schema-org' class='text-primary-600 underline dark:text-primary-400'>Why not schema.org?</a> for more detail."
+    a: "No. Schema.org provides page-level vocabulary consumed by search engines. AI-Me provides site-level discovery for AI agents. They're complementary — you can reference your schema.org data from the manifest's <code>related</code> field. See <a href='/why-not-schema-org' class='text-primary-600 underline dark:text-primary-400'>Why not schema.org?</a> for more detail."
   },
   {
     q: "Does this compete with llms.txt?",
-    a: "No. llms.txt is human-readable guidance for LLMs. AI-Me is machine-readable structured data. Use both: include a pointer to your vendor card in your llms.txt file."
+    a: "No. llms.txt is human-readable guidance for LLMs. AI-Me is machine-readable structured data. Use both: include a pointer to your <code>ai-me.json</code> in your <code>llms.txt</code> file."
   },
   {
     q: "What about MCP and A2A?",
@@ -32,10 +32,10 @@ const faqs = [
   },
   {
     q: "What if I have no commercial offerings?",
-    a: "The <code>offerings</code> field is optional. Open-source projects, government sites, and personal sites can publish a conformant vendor card without it."
+    a: "The <code>offerings</code> field is optional. Open-source projects, government sites, and personal sites can all publish a conformant discovery manifest without it."
   },
   {
-    q: "How do I validate my vendor card?",
+    q: "How do I validate my manifest?",
     a: "Use the CLI: <code>npx @ai-me/validator https://yourdomain.com</code>, or paste your JSON into the <a href='/validator' class='text-primary-600 underline dark:text-primary-400'>online playground</a>."
   },
   {
@@ -49,7 +49,7 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title="FAQ" description="Frequently asked questions about the AI-Me vendor card specification.">
+<BaseLayout title="FAQ" description="Frequently asked questions about the AI-Me discovery manifest specification.">
   <div class="mx-auto max-w-4xl px-4 py-12">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Frequently Asked Questions</h1>
     <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">

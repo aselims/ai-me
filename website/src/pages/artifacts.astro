@@ -25,7 +25,7 @@ Detailed description of your company and what it offers.
 - Website: https://example.com
 - Documentation: https://example.com/docs
 - Pricing: https://example.com/pricing
-- Vendor Card: https://example.com/.well-known/ai-me.json`;
+- Discovery Manifest: https://example.com/.well-known/ai-me.json`;
 
 const htmlSnippet = `<!-- AI-Me Compliant Badge -->
 <a href="https://spec.ai-me.dev" target="_blank" rel="noopener noreferrer">
@@ -50,7 +50,7 @@ const htmlSnippet = `<!-- AI-Me Compliant Badge -->
       <section>
         <h2 class="text-xl font-semibold text-gray-900 dark:text-white">/.well-known/ai-me.json</h2>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
-          Minimal vendor card template. Replace the placeholder values with your own.
+          Minimal discovery manifest template. Replace the placeholder values with your own.
         </p>
         <CodeBlock code={aiMeMinimal} lang="json" filename="/.well-known/ai-me.json" />
       </section>
@@ -58,7 +58,7 @@ const htmlSnippet = `<!-- AI-Me Compliant Badge -->
       <section>
         <h2 class="text-xl font-semibold text-gray-900 dark:text-white">/.well-known/llms.txt</h2>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
-          A recommended companion file providing human-readable context for LLMs. Include a link to your vendor card.
+          A recommended companion file providing human-readable context for LLMs. Include a link to your discovery manifest.
         </p>
         <CodeBlock code={llmsTxt} lang="markdown" filename="/.well-known/llms.txt" />
       </section>
@@ -66,7 +66,7 @@ const htmlSnippet = `<!-- AI-Me Compliant Badge -->
       <section>
         <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Compliance badge</h2>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
-          Embed this badge on your site to show that you publish an AI-Me vendor card.
+          Embed this badge on your site to show that you publish an AI-Me discovery manifest.
         </p>
         <div class="mt-4 flex items-center gap-4">
           <div class="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
@@ -82,7 +82,7 @@ const htmlSnippet = `<!-- AI-Me Compliant Badge -->
     <div class="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900">
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">More examples</h2>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-        See the <a href="/examples" class="text-primary-600 underline dark:text-primary-400">examples page</a> for full vendor cards covering SaaS, consulting, open-source, and e-commerce archetypes.
+        See the <a href="/examples" class="text-primary-600 underline dark:text-primary-400">examples page</a> for full discovery manifests covering SaaS, consulting, open-source, and e-commerce archetypes.
       </p>
     </div>
   </div>
