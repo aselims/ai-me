@@ -154,7 +154,7 @@ export default function ValidatorPlayground({ schema, examples }: Props) {
             fontWeight: 600,
           }}
         >
-          ✓ Valid AI-Me vendor card
+          ✓ Valid AI-Me discovery manifest
         </div>
       )}
 

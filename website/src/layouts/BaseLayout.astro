@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "AI-Me is an open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+  description = "AI-Me is an open standard for machine-readable site identity — one JSON file at a well-known endpoint gives AI agents a complete, authoritative picture of who you are and what you offer.",
   ogImage = "/og-default.png",
 } = Astro.props;
 
@@ -44,7 +44,7 @@ const fullTitle = title === "AI-Me" ? title : `${title} — AI-Me`;
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
     <meta name="generator" content={Astro.generator} />
-    <meta name="keywords" content="AI-Me, vendor card, AI agent discovery, machine-readable, JSON schema, open specification, llms.txt, structured data" />
+    <meta name="keywords" content="AI-Me, discovery manifest, AI agent discovery, machine-readable site identity, JSON schema, open specification, llms.txt, structured data, vendor card" />
     <meta name="theme-color" content="#2563eb" />
     <meta name="author" content="AI-Me Contributors" />
 
@@ -58,7 +58,7 @@ const fullTitle = title === "AI-Me" ? title : `${title} — AI-Me`;
           "name": "AI-Me",
           "url": "https://spec.ai-me.dev",
           "logo": "https://spec.ai-me.dev/logo.png",
-          "description": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+          "description": "Open standard for machine-readable site identity — one-fetch, site-wide discovery for AI agents.",
           "sameAs": [
             "https://github.com/anthropics/ai-me"
           ]
@@ -66,10 +66,10 @@ const fullTitle = title === "AI-Me" ? title : `${title} — AI-Me`;
         {
           "@type": "WebSite",
           "@id": "https://spec.ai-me.dev/#website",
-          "name": "AI-Me Vendor Card Specification",
+          "name": "AI-Me Discovery Manifest Specification",
           "url": "https://spec.ai-me.dev",
           "publisher": { "@id": "https://spec.ai-me.dev/#org" },
-          "description": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents."
+          "description": "Open standard for machine-readable site identity — one-fetch, site-wide discovery for AI agents."
         },
         {
           "@type": "SoftwareApplication",
@@ -82,7 +82,7 @@ const fullTitle = title === "AI-Me" ? title : `${title} — AI-Me`;
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Validate AI-Me vendor cards against the JSON Schema — online playground and CLI tool."
+          "description": "Validate AI-Me discovery manifests against the JSON Schema — online playground and CLI tool."
         },
         {
           "@type": "WebPage",

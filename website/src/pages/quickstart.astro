@@ -68,14 +68,14 @@ const llmsTxtExample = `# Your Company
 
 - Website: https://example.com
 - Docs: https://example.com/docs
-- Vendor Card: https://example.com/.well-known/ai-me.json`;
+- Discovery Manifest: https://example.com/.well-known/ai-me.json`;
 ---
 
-<BaseLayout title="Quick Start" description="Get your AI-Me vendor card set up in under 5 minutes.">
+<BaseLayout title="Quick Start" description="Publish your AI-Me discovery manifest in under 5 minutes — make your site readable by AI agents.">
   <div class="mx-auto max-w-4xl px-4 py-12">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Quick Start</h1>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Publish Your AI Discovery Manifest</h1>
     <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
-      Get your AI-Me vendor card published in under 5 minutes.
+      Get your <code class="rounded bg-gray-200 px-1.5 py-0.5 text-base dark:bg-gray-700">ai-me.json</code> published in under 5 minutes — and give AI agents an authoritative, structured picture of your site.
     </p>
 
     <!-- Step 0: AI Prompt -->
@@ -91,15 +91,15 @@ const llmsTxtExample = `# Your Company
         <div class="flex items-start gap-4">
           <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-600 text-lg font-bold text-white">1</div>
           <div>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Create your vendor card</h2>
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Create your discovery manifest</h2>
             <p class="mt-2 text-gray-600 dark:text-gray-400">
               Create a JSON file at <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">/.well-known/ai-me.json</code> on your web server.
             </p>
 
-            <h3 class="mt-6 text-lg font-medium text-gray-900 dark:text-white">Minimal card (required fields only)</h3>
+            <h3 class="mt-6 text-lg font-medium text-gray-900 dark:text-white">Minimal manifest (required fields only)</h3>
             <CodeBlock code={minimalCard} lang="json" filename="/.well-known/ai-me.json" />
 
-            <h3 class="mt-6 text-lg font-medium text-gray-900 dark:text-white">Full card (with recommended fields)</h3>
+            <h3 class="mt-6 text-lg font-medium text-gray-900 dark:text-white">Full manifest (with recommended fields)</h3>
             <CodeBlock code={fullCard} lang="json" filename="/.well-known/ai-me.json" />
 
             <div class="mt-4 rounded-lg border-l-4 border-primary-500 bg-primary-50 p-4 dark:bg-primary-900/20">
@@ -118,7 +118,7 @@ const llmsTxtExample = `# Your Company
           <div>
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Add llms.txt <span class="text-base font-normal text-gray-500">(recommended)</span></h2>
             <p class="mt-2 text-gray-600 dark:text-gray-400">
-              Create a human-readable <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">/.well-known/llms.txt</code> file and link to your vendor card.
+              Create a human-readable <code class="rounded bg-gray-200 px-1.5 py-0.5 text-sm dark:bg-gray-700">/.well-known/llms.txt</code> file and link to your discovery manifest.
             </p>
             <CodeBlock code={llmsTxtExample} lang="markdown" filename="/.well-known/llms.txt" />
           </div>
@@ -151,7 +151,7 @@ const llmsTxtExample = `# Your Company
           <div>
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Validate</h2>
             <p class="mt-2 text-gray-600 dark:text-gray-400">
-              Use the CLI validator to check your vendor card:
+              Use the CLI validator to check your discovery manifest:
             </p>
             <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
             <p class="mt-4 text-gray-600 dark:text-gray-400">
@@ -167,7 +167,7 @@ const llmsTxtExample = `# Your Company
     <div class="mt-16 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-900">
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">What's next?</h2>
       <ul class="mt-3 space-y-2 text-sm text-gray-600 dark:text-gray-400">
-        <li>• Browse <a href="/examples" class="text-primary-600 underline dark:text-primary-400">example vendor cards</a> for different business types</li>
+        <li>• Browse <a href="/examples" class="text-primary-600 underline dark:text-primary-400">example discovery manifests</a> for different business types</li>
         <li>• Read the <a href="/spec" class="text-primary-600 underline dark:text-primary-400">full specification</a></li>
         <li>• Understand <a href="/why-not-schema-org" class="text-primary-600 underline dark:text-primary-400">how AI-Me differs from schema.org</a></li>
         <li>• <a href="/contributing" class="text-primary-600 underline dark:text-primary-400">Contribute</a> to the specification</li>

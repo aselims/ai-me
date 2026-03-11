@@ -22,18 +22,18 @@ const minimalExample = JSON.stringify({
 }, null, 2);
 ---
 
-<BaseLayout title="Validator" description="Validate your AI-Me vendor card with the CLI or the interactive playground.">
+<BaseLayout title="Validator" description="Validate your AI-Me discovery manifest with the CLI or the interactive playground.">
   <div class="mx-auto max-w-4xl px-4 py-12">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Validator</h1>
     <p class="mt-2 text-lg text-gray-600 dark:text-gray-400">
-      Check that your vendor card conforms to the AI-Me specification.
+      Check that your discovery manifest conforms to the AI-Me specification.
     </p>
 
     <!-- CLI -->
     <section class="mt-10">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-white">CLI Validator</h2>
       <p class="mt-2 text-gray-600 dark:text-gray-400">
-        Validate any site's vendor card from the command line:
+        Validate any site's manifest from the command line:
       </p>
       <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
@@ -48,7 +48,7 @@ const minimalExample = JSON.stringify({
     <section class="mt-12">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Online Playground</h2>
       <p class="mt-2 text-gray-600 dark:text-gray-400">
-        Paste your vendor card JSON below and validate it instantly — no server required.
+        Paste your manifest JSON below and validate it instantly — no server required.
       </p>
       <div class="mt-6">
         <ValidatorPlayground

@@ -16,110 +16,71 @@ const minimalExample = JSON.stringify({
 }, null, 2);
 ---
 
-<BaseLayout title="AI-Me" description="Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.">
+<BaseLayout
+  title="AI-Me"
+  description="AI-Me is an open standard for machine-readable site identity — one JSON file at a well-known endpoint gives AI agents a complete, authoritative picture of who you are and what you offer."
+>
 
   <!-- Hero -->
   <section class="mx-auto max-w-4xl px-4 pt-20 pb-16 text-center">
     <div class="mb-4 inline-flex items-center rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-300">
-      v0.1 Draft
+      v0.1 Draft — Open Specification
     </div>
     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
-      One JSON file.<br />Site-wide discovery.
+      Let AI agents<br />understand your site.
     </h1>
     <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-      AI-Me is an open specification for machine-readable <strong>vendor cards</strong> — a single JSON document at a well-known endpoint that tells AI agents who you are, what you offer, and how to engage.
+      AI-Me is an open standard for machine-readable site identity. One JSON file at a well-known endpoint gives AI agents a complete, authoritative picture of who you are and what you offer — without crawling, scraping, or guessing.
     </p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
       <a href="/quickstart" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
-        Get started
+        Get started in 5 minutes
+      </a>
+      <a href="/generate" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+        Generate your manifest
       </a>
       <a href="/spec" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
         Read the spec
       </a>
-      <a href="/generate" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-        Generate your card
-      </a>
     </div>
   </section>
 
-  <!-- Quick Start -->
+  <!-- Problem / Pain -->
   <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
     <div class="mx-auto max-w-4xl px-4">
-      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Quick Start</h2>
-      <p class="mt-2 text-center text-gray-600 dark:text-gray-400">Three steps to make your site discoverable by AI agents.</p>
-
-      <div class="mt-10 space-y-8">
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">1</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add your vendor card</h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              Create <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/ai-me.json</code> at your site root.
-            </p>
-            <CodeBlock code={minimalExample} lang="json" filename="/.well-known/ai-me.json" />
-          </div>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">AI agents are flying blind.</h2>
+      <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl">
+        AI assistants, agent frameworks, and LLM-powered tools increasingly try to understand what websites offer — to answer user questions, route requests, and take actions on behalf of users.
+      </p>
+      <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl">
+        Right now, they have three bad options:
+      </p>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="rounded-lg border border-red-200 bg-red-50 p-5 dark:border-red-900/50 dark:bg-red-900/10">
+          <div class="text-sm font-semibold text-red-700 dark:text-red-400">Scrape HTML</div>
+          <p class="mt-1 text-sm text-red-600 dark:text-red-300">Slow, fragile, and hits bot protections. No reliable structure.</p>
         </div>
-
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">2</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add llms.txt <span class="text-sm font-normal text-gray-500">(recommended)</span></h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              Create <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/llms.txt</code> and include a pointer to your vendor card URL.
-            </p>
-          </div>
+        <div class="rounded-lg border border-red-200 bg-red-50 p-5 dark:border-red-900/50 dark:bg-red-900/10">
+          <div class="text-sm font-semibold text-red-700 dark:text-red-400">Crawl multiple pages</div>
+          <p class="mt-1 text-sm text-red-600 dark:text-red-300">Expensive, slow to aggregate, and still incomplete for agents.</p>
         </div>
-
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">3</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Validate</h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Run the validator to check your card:</p>
-            <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              Or use the <a href="/validator" class="text-primary-600 underline hover:text-primary-700 dark:text-primary-400">online playground</a>.
-            </p>
-          </div>
+        <div class="rounded-lg border border-red-200 bg-red-50 p-5 dark:border-red-900/50 dark:bg-red-900/10">
+          <div class="text-sm font-semibold text-red-700 dark:text-red-400">Make it up</div>
+          <p class="mt-1 text-sm text-red-600 dark:text-red-300">Hallucinated facts, wrong prices, outdated CTAs. The worst outcome.</p>
         </div>
       </div>
+      <p class="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl">
+        Schema.org helps search engines but is scattered across pages. llms.txt provides human-readable guidance, not machine-readable structure. <strong class="text-gray-900 dark:text-white">There is no standard, compact, authoritative document an AI agent can fetch to understand a site in one request.</strong>
+      </p>
+      <p class="mt-4 text-gray-900 dark:text-white font-semibold">That's the gap AI-Me fills.</p>
     </div>
   </section>
 
-  <!-- Why this exists -->
+  <!-- How It Works -->
   <section class="py-16">
-    <div class="mx-auto max-w-4xl px-4">
-      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Why AI agents need vendor cards</h2>
-      <div class="mt-10 grid gap-8 md:grid-cols-3">
-        <div>
-          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white">Agents need discovery</h3>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">AI agents can't reliably scrape websites. They need structured, predictable data at a known location to understand what a site offers.</p>
-        </div>
-        <div>
-          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white">One fetch, full picture</h3>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Unlike schema.org (scattered across pages), a vendor card is a single document. One HTTP request gives agents everything they need.</p>
-        </div>
-        <div>
-          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white">Strict and validatable</h3>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">A well-defined JSON Schema means cards can be validated automatically. No ambiguity, no guessing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Discovery flow diagram -->
-  <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
     <div class="mx-auto max-w-3xl px-4 text-center">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">How AI-Me discovery works</h2>
-      <p class="mt-2 text-gray-600 dark:text-gray-400">A single well-known endpoint for structured site-wide AI agent discovery.</p>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">How AI-Me works</h2>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">A single well-known endpoint. One HTTP request. Full picture.</p>
       <div class="mt-8">
         <svg viewBox="0 0 700 120" class="mx-auto w-full max-w-2xl" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Discovery flow: AI Agent sends a GET request to /.well-known/ai-me.json and receives structured JSON data for site-wide discovery">
           <rect x="10" y="30" width="140" height="60" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
@@ -141,18 +102,123 @@ const minimalExample = JSON.stringify({
           </defs>
         </svg>
       </div>
+      <div class="mt-8 grid gap-4 text-left md:grid-cols-3">
+        <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">1</div>
+          <h3 class="mt-3 font-semibold text-gray-900 dark:text-white">Publish</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Create <code class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-800">/.well-known/ai-me.json</code> — a JSON document conforming to the AI-Me schema.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">2</div>
+          <h3 class="mt-3 font-semibold text-gray-900 dark:text-white">Agents fetch</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Any AI agent encountering your domain can fetch that URL for a complete, structured picture — no crawling required.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">3</div>
+          <h3 class="mt-3 font-semibold text-gray-900 dark:text-white">They understand</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Name, summary, canonical pages, offerings, support contacts, and links to MCP/A2A/llms.txt — everything needed to engage correctly.</p>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <a href="/spec" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+          See the full data model in the spec &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start -->
+  <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Start in five minutes</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-400">Publish your AI discovery manifest today.</p>
+
+      <div class="mt-10 space-y-8">
+        <div class="flex gap-4">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">1</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Create your discovery manifest</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Serve a JSON file at <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/ai-me.json</code> on your site root.
+            </p>
+            <CodeBlock code={minimalExample} lang="json" filename="/.well-known/ai-me.json" />
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">2</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add llms.txt <span class="text-sm font-normal text-gray-500">(recommended)</span></h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Create <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/llms.txt</code> and include a pointer to your manifest URL.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">3</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Validate</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Run the validator to check your manifest:</p>
+            <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Or use the <a href="/validator" class="text-primary-600 underline hover:text-primary-700 dark:text-primary-400">online playground</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="/quickstart" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
+          Full quick start guide
+        </a>
+        <a href="/generate" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+          Use the web generator
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It Is For -->
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Built for the whole web</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-400">Any site can publish a discovery manifest. Here's who benefits most.</p>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">Web developers and site owners</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Your site is increasingly accessed by AI agents, not just browsers. Give them a reliable, authoritative source of truth about your site — and control what they know.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">SaaS and API teams</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">AI assistants are becoming purchase research tools. Make your product, pricing, and API discoverable with structured data that agents can act on — not just read.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" /></svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">AI and agent builders</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Building with LLMs? Point your agent at <code class="text-xs">/.well-known/ai-me.json</code> for reliable, structured data about any site that has published a manifest — no scraping required.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Compatibility -->
-  <section class="py-16">
+  <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
     <div class="mx-auto max-w-4xl px-4">
-      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">AI-Me works with existing standards</h2>
+      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Works alongside existing standards</h2>
       <p class="mt-2 text-center text-gray-600 dark:text-gray-400">Complementary to schema.org, llms.txt, MCP, and A2A — not competing.</p>
       <div class="mt-10 grid gap-6 md:grid-cols-2">
         <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
           <h3 class="font-semibold text-gray-900 dark:text-white">llms.txt</h3>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">llms.txt is human-readable guidance for LLMs. AI-Me is machine-readable structured data. Use both: link to your vendor card from llms.txt.</p>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">llms.txt is human-readable guidance for LLMs. AI-Me is machine-readable structured data. Use both — link to your <code class="text-xs">ai-me.json</code> from your <code class="text-xs">llms.txt</code>.</p>
         </div>
         <div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
           <h3 class="font-semibold text-gray-900 dark:text-white">Schema.org</h3>
@@ -170,11 +236,56 @@ const minimalExample = JSON.stringify({
     </div>
   </section>
 
-  <!-- Adoption -->
+  <!-- Trust + Roadmap -->
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">An open, evolving standard</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        AI-Me is a community-driven open specification in active draft. The core data model is stable — we're collecting real-world feedback before v1.0.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-white">Open Governance</div>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">All changes proposed and reviewed publicly on GitHub.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-white">Open License</div>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">Spec: CC-BY 4.0. Code: Apache-2.0. No vendor lock-in.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-white">Formal Schema</div>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">JSON Schema validation. Machine-verifiable conformance.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          </div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-white">Roadmap to v1.0</div>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">IANA registration, verification, conformance test suite.</p>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/roadmap" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+          View the full roadmap &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adoption / Footer CTA -->
   <section class="border-t border-gray-200 bg-gray-50 py-16 dark:border-gray-800 dark:bg-gray-900">
     <div class="mx-auto max-w-4xl px-4 text-center">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Adopt the AI-Me specification</h2>
-      <p class="mt-2 text-gray-600 dark:text-gray-400">Add your vendor card and make your site discoverable by AI agents.</p>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Make your site AI-ready.</h2>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">Join the sites publishing a discovery manifest. It takes five minutes and costs nothing.</p>
 
       {/* Stats counter — only renders if Umami is configured */}
       <div class="mt-8">

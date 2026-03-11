@@ -65,7 +65,7 @@ export default function StatsCounter({ umamiUrl, umamiShareId }: Props) {
             {formatNumber(stats.cardsGenerated)}
           </div>
           <div style={{ fontSize: "14px", color: "#6b7280", marginTop: "4px" }}>
-            vendor cards generated
+            manifests generated
           </div>
         </div>
       )}
