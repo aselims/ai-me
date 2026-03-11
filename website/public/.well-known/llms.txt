@@ -12,6 +12,6 @@ AI-Me defines a JSON document served at `/.well-known/ai-me.json` that provides 
 - Examples: https://spec.ai-me.dev/examples
 - Validator: https://spec.ai-me.dev/validator
 - FAQ: https://spec.ai-me.dev/faq
-- GitHub: https://github.com/anthropics/ai-me
+- GitHub: https://github.com/aselims/ai-me
 - Vendor Card: https://spec.ai-me.dev/.well-known/ai-me.json
 - Full Documentation: https://spec.ai-me.dev/.well-known/llms-full.txt

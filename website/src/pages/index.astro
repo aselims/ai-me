@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CodeBlock from "../components/CodeBlock.astro";
-import StatsCounter from "../components/StatsCounter.tsx";
 
 const minimalExample = JSON.stringify({
   "schema_version": "0.1",
@@ -18,7 +17,7 @@ const minimalExample = JSON.stringify({
 
 <BaseLayout
   title="AI-Me"
-  description="AI-Me is an open standard for machine-readable site identity — one JSON file at a well-known endpoint gives AI agents a complete, authoritative picture of who you are and what you offer."
+  description="AI-Me is an open standard for machine-readable site identity — one JSON file at a well-known endpoint gives AI agents a structured, explicit picture of who you are and what you offer."
 >
 
   <!-- Hero -->
@@ -30,14 +29,14 @@ const minimalExample = JSON.stringify({
       Let AI agents<br />understand your site.
     </h1>
     <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-      AI-Me is an open standard for machine-readable site identity. One JSON file at a well-known endpoint gives AI agents a complete, authoritative picture of who you are and what you offer — without crawling, scraping, or guessing.
+      AI-Me is an open standard for machine-readable site identity. One JSON file at a well-known endpoint gives AI agents a structured, explicit picture of who you are and what you offer — without crawling, scraping, or guessing.
     </p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-      <a href="/quickstart" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
-        Get started in 5 minutes
-      </a>
-      <a href="/generate" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+      <a href="/generate" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
         Generate your manifest
+      </a>
+      <a href="/quickstart" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+        Get started
       </a>
       <a href="/spec" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
         Read the spec
@@ -73,6 +72,9 @@ const minimalExample = JSON.stringify({
         Schema.org helps search engines but is scattered across pages. llms.txt provides human-readable guidance, not machine-readable structure. <strong class="text-gray-900 dark:text-white">There is no standard, compact, authoritative document an AI agent can fetch to understand a site in one request.</strong>
       </p>
       <p class="mt-4 text-gray-900 dark:text-white font-semibold">That's the gap AI-Me fills.</p>
+      <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl">
+        Agent tooling is forming default discovery behaviors now. Sites that publish structured manifests early will be indexed first.
+      </p>
     </div>
   </section>
 
@@ -111,7 +113,7 @@ const minimalExample = JSON.stringify({
         <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
           <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">2</div>
           <h3 class="mt-3 font-semibold text-gray-900 dark:text-white">Agents fetch</h3>
-          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Any AI agent encountering your domain can fetch that URL for a complete, structured picture — no crawling required.</p>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Agents built to support AI-Me can fetch that URL in one request — no crawling required.</p>
         </div>
         <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
           <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">3</div>
@@ -133,47 +135,16 @@ const minimalExample = JSON.stringify({
       <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white">Start in five minutes</h2>
       <p class="mt-2 text-center text-gray-600 dark:text-gray-400">Publish your AI discovery manifest today.</p>
 
-      <div class="mt-10 space-y-8">
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">1</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Create your discovery manifest</h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              Serve a JSON file at <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/ai-me.json</code> on your site root.
-            </p>
-            <CodeBlock code={minimalExample} lang="json" filename="/.well-known/ai-me.json" />
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">2</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Add llms.txt <span class="text-sm font-normal text-gray-500">(recommended)</span></h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              Create <code class="rounded bg-gray-200 px-1.5 py-0.5 text-xs dark:bg-gray-700">/.well-known/llms.txt</code> and include a pointer to your manifest URL.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">3</div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Validate</h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Run the validator to check your manifest:</p>
-            <CodeBlock code="npx @ai-me/validator https://yourdomain.com" lang="bash" filename="terminal" />
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              Or use the <a href="/validator" class="text-primary-600 underline hover:text-primary-700 dark:text-primary-400">online playground</a>.
-            </p>
-          </div>
-        </div>
+      <div class="mt-8">
+        <CodeBlock code={minimalExample} lang="json" filename="/.well-known/ai-me.json" />
       </div>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <a href="/quickstart" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
-          Full quick start guide
+          Full quick start guide &rarr;
         </a>
         <a href="/generate" class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-          Use the web generator
+          Use the web generator &rarr;
         </a>
       </div>
     </div>
@@ -207,6 +178,9 @@ const minimalExample = JSON.stringify({
           <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Building with LLMs? Point your agent at <code class="text-xs">/.well-known/ai-me.json</code> for reliable, structured data about any site that has published a manifest — no scraping required.</p>
         </div>
       </div>
+      <p class="mt-8 text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-center">
+        No major AI agent reads ai-me.json by default — yet. Publishing now is a forward investment: your manifest doubles as structured documentation, prepares you for agent support as it arrives, and contributes to the critical mass that makes the standard worth implementing.
+      </p>
     </div>
   </section>
 
@@ -243,7 +217,7 @@ const minimalExample = JSON.stringify({
       <p class="mt-2 text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         AI-Me is a community-driven open specification in active draft. The core data model is stable — we're collecting real-world feedback before v1.0.
       </p>
-      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
         <div class="text-center">
           <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
@@ -272,6 +246,13 @@ const minimalExample = JSON.stringify({
           <div class="text-sm font-semibold text-gray-900 dark:text-white">Roadmap to v1.0</div>
           <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">IANA registration, verification, conformance test suite.</p>
         </div>
+        <div class="text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          </div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-white">Verification (planned)</div>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">v0.1 relies on HTTPS domain ownership. DNS-based verification and cryptographic signatures are planned for v1.0.</p>
+        </div>
       </div>
       <div class="mt-8 text-center">
         <a href="/roadmap" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
@@ -287,22 +268,7 @@ const minimalExample = JSON.stringify({
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Make your site AI-ready.</h2>
       <p class="mt-2 text-gray-600 dark:text-gray-400">Join the sites publishing a discovery manifest. It takes five minutes and costs nothing.</p>
 
-      {/* Stats counter — only renders if Umami is configured */}
-      <div class="mt-8">
-        <StatsCounter
-          client:load
-          umamiUrl={import.meta.env.PUBLIC_UMAMI_URL || ""}
-          umamiShareId={import.meta.env.PUBLIC_UMAMI_SHARE_ID || ""}
-        />
-      </div>
-      <div class="mt-8 inline-flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-6 py-4 dark:border-gray-700 dark:bg-gray-800">
-        <img src="/favicon.svg" alt="AI-Me badge" class="h-8 w-8" />
-        <div class="text-left">
-          <div class="text-sm font-semibold text-gray-900 dark:text-white">AI-Me Compliant</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400">Embed this badge on your site</div>
-        </div>
-      </div>
-      <div class="mt-6 flex flex-wrap justify-center gap-4">
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a href="/quickstart" class="rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-700">
           Get started now
         </a>

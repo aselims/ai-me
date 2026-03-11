@@ -116,5 +116,5 @@ Validation: Use AJV or any draft-07 compatible validator
 
 ## Source Code
 
-GitHub: https://github.com/anthropics/ai-me
+GitHub: https://github.com/aselims/ai-me
 Vendor Card: https://spec.ai-me.dev/.well-known/ai-me.json
