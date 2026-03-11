@@ -3,7 +3,7 @@ set -euo pipefail
 
 DEPLOY_DIR="/var/www/spec.ai-me.dev"
 STAGING_DIR=$(mktemp -d)
-trap 'rm -rf "$STAGING_DIR"' EXIT
+trap 'sudo rm -rf "$STAGING_DIR"' EXIT
 
 echo "==> Building and extracting static site..."
 docker build --output "$STAGING_DIR" .
