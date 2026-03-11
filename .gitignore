@@ -40,3 +40,5 @@ coverage/
 
 # Quarantine (internal/dev files not for public repo)
 Quarantine/
+server-quarantine/
+website/.env.production

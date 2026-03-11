@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+.github
+
+# Node
+node_modules
+
+# Build artifacts
+website/dist
+packages/*/dist
+
+# Server/deployment configs (never send to Docker)
+server-quarantine
+deploy.sh
+
+# Docs and meta
+# spec/ is intentionally NOT excluded — Astro content collection reads from ../spec at build time
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+GOVERNANCE.md
+SECURITY.md
+CODE_OF_CONDUCT.md
+LICENSE*
+docs
+
+# Editor/IDE
+.vscode
+.idea
+*.swp
+*.swo
