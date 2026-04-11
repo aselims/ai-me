@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 
 RUN corepack enable && corepack prepare pnpm@10.31.0 --activate \
     && addgroup -S builder && adduser -S builder -G builder
