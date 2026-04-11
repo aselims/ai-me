@@ -1,10 +1,10 @@
-# AI-Me Vendor Card Specification — Full Documentation
+# AI-Me Discovery Manifest Specification — Full Documentation
 
-> Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.
+> Open specification for machine-readable discovery manifests — one-fetch, site-wide discovery for AI agents.
 
 ## What is AI-Me?
 
-AI-Me defines a JSON document served at `/.well-known/ai-me.json` that provides a machine-readable "vendor card" for any website. It gives AI agents a single-fetch, site-wide view of who the site owner is, what they offer, and how to engage — with canonical pages, offerings, pricing models, and calls-to-action in a strict, validatable shape.
+AI-Me defines a JSON document served at `/.well-known/ai-me.json` that provides a machine-readable discovery manifest for any website. It gives AI agents a single-fetch, site-wide view of who the site owner is, what they offer, and how to engage — with canonical pages, offerings, pricing models, and calls-to-action in a strict, validatable shape.
 
 The format is JSON, designed to be easy to generate, validate, and cache. It is complementary to:
 - **llms.txt** — human-readable guidance for LLMs
@@ -20,13 +20,13 @@ JSON Schema: https://spec.ai-me.dev/schemas/ai-me.schema.json
 
 ## Discovery
 
-A conforming site MUST serve the vendor card at: `/.well-known/ai-me.json`
+A conforming site MUST serve the discovery manifest at: `/.well-known/ai-me.json`
 A site MAY also serve identical content at: `/ai-manifest.json`
 The well-known location is canonical per RFC 8615.
 
 ## Required Fields
 
-Every vendor card MUST include:
+Every discovery manifest MUST include:
 - `schema_version` — string, must be "0.1" for this draft
 - `name` — public-facing name of the organization or project
 - `website` — absolute URL of the site's primary web presence
@@ -63,7 +63,7 @@ Optional objects for support contact (`email`, `hours`, `response_time`) and tec
 
 ## Extension Mechanism
 
-Vendor cards MAY include additional fields. Clients MUST ignore unknown fields. Extensions SHOULD use namespaced prefixes (e.g. `x_mcp`, `x_a2a`).
+Discovery manifests MAY include additional fields. Clients MUST ignore unknown fields. Extensions SHOULD use namespaced prefixes (e.g. `x_mcp`, `x_a2a`).
 
 ## Minimal Example
 
@@ -86,9 +86,9 @@ Vendor cards MAY include additional fields. Clients MUST ignore unknown fields. 
 - **Home**: https://spec.ai-me.dev/ — Overview and quick start guide
 - **Specification**: https://spec.ai-me.dev/spec — Full specification text (v0.1)
 - **Quick Start**: https://spec.ai-me.dev/quickstart — Get set up in under 5 minutes
-- **Generate**: https://spec.ai-me.dev/generate — AI prompt, web wizard, or CLI to create your vendor card
-- **Examples**: https://spec.ai-me.dev/examples — Vendor card examples for SaaS, consulting, e-commerce, open source
-- **Validator**: https://spec.ai-me.dev/validator — Online playground and CLI to validate vendor cards
+- **Generate**: https://spec.ai-me.dev/generate — AI prompt, web wizard, or CLI to create your discovery manifest
+- **Examples**: https://spec.ai-me.dev/examples — Discovery manifest examples for SaaS, consulting, e-commerce, open source
+- **Validator**: https://spec.ai-me.dev/validator — Online playground and CLI to validate discovery manifests
 - **FAQ**: https://spec.ai-me.dev/faq — Frequently asked questions
 - **Why Not Schema.org?**: https://spec.ai-me.dev/why-not-schema-org — How AI-Me differs from schema.org
 - **Roadmap**: https://spec.ai-me.dev/roadmap — Planned features and future versions
@@ -98,10 +98,10 @@ Vendor cards MAY include additional fields. Clients MUST ignore unknown fields. 
 
 ## Tools
 
-- **Validator CLI**: `npx @ai-me/validator https://yourdomain.com` — validates a site's vendor card
+- **Validator CLI**: `npx @ai-me/validator https://yourdomain.com` — validates a site's discovery manifest
 - **Generator CLI**: `npx @ai-me/create` — interactive CLI to generate ai-me.json
 - **Online Validator**: https://spec.ai-me.dev/validator — paste JSON and validate in browser
-- **Web Generator**: https://spec.ai-me.dev/generate — multi-step form to build your vendor card
+- **Web Generator**: https://spec.ai-me.dev/generate — multi-step form to build your discovery manifest
 
 ## Schema
 
@@ -117,4 +117,4 @@ Validation: Use AJV or any draft-07 compatible validator
 ## Source Code
 
 GitHub: https://github.com/aselims/ai-me
-Vendor Card: https://spec.ai-me.dev/.well-known/ai-me.json
+Discovery Manifest: https://spec.ai-me.dev/.well-known/ai-me.json

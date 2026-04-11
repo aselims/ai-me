@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "name": "AI-Me Specification",
   "website": "https://spec.ai-me.dev",
-  "summary": "Open specification for machine-readable vendor cards — one-fetch, site-wide discovery for AI agents.",
+  "summary": "Open specification for machine-readable discovery manifests — one-fetch, site-wide discovery for AI agents.",
   "logo": "https://spec.ai-me.dev/favicon.svg",
   "languages": ["en"],
   "category": ["open_source", "developer_tools", "specification"],
@@ -13,9 +13,9 @@
   },
   "offerings": [
     {
-      "name": "AI-Me Vendor Card Spec",
+      "name": "AI-Me Discovery Manifest Spec",
       "type": "open_source",
-      "description": "A machine-readable vendor card specification for AI agent discovery.",
+      "description": "A machine-readable discovery manifest specification for AI agent discovery.",
       "pricing": {
         "model": "free",
         "currency": "",
