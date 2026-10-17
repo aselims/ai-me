@@ -4,7 +4,9 @@
 
 - **Build:** Docker multi-stage (node:22-alpine → scratch), exports only static files
 - **Serve:** nginx on VPS, static files at `/var/www/spec.ai-me.dev/`
-- **Domains:** `spec.ai-me.dev` (primary), `ai-me.dev` + `www.ai-me.dev` (redirect)
+- **Domains:** `spec.ai-me.dev`. Since 2026-10-17 `ai-me.dev` + `www.ai-me.dev` no longer redirect here: they serve the
+  ai-me-bot product from their own vhost (`/etc/nginx/sites-available/ai-me.dev.conf`, repo `aselims/ai-me-bot`,
+  `deploy/nginx-ai-me.dev.conf`). The spec vhost now names only `spec.ai-me.dev`.
 - **TLS:** Let's Encrypt via certbot
 - **Analytics:** Umami, configured via `website/.env.production` (picked up automatically at build time)
 
@@ -25,7 +27,7 @@
 8. **No IPv6** — Added `listen [::]:443 ssl http2` and `listen [::]:80` to all server blocks.
 9. **`pnpm build` builds everything** — Changed to `pnpm --filter website... build`.
 10. **No custom 404** — Added `error_page 404 /404.html`. Requires `src/pages/404.astro` in website.
-11. **Double redirect for ai-me.dev over HTTP** — HTTP block now redirects all to `https://spec.ai-me.dev$request_uri`.
+11. **Double redirect for ai-me.dev over HTTP** — HTTP block now redirects all to `https://spec.ai-me.dev$request_uri`. (Superseded 2026-10-17: ai-me.dev moved to the ai-me-bot vhost; the spec HTTP block serves `spec.ai-me.dev` only.)
 12. **Missing `gzip_vary`** — Added for correct proxy/CDN caching.
 13. **No rate limiting** — Added `limit_req_zone` for `.well-known/` endpoints (10 req/s per IP, burst 20).
 
@@ -73,7 +75,7 @@ chmod +x deploy.sh
 # 5. Verify
 curl -I https://spec.ai-me.dev
 curl -sf https://spec.ai-me.dev/.well-known/ai-me.json
-curl -I https://ai-me.dev  # should redirect
+curl -I https://ai-me.dev  # 200: the ai-me-bot landing page (not a redirect since 2026-10-17)
 ```
 
 ## Future Considerations
